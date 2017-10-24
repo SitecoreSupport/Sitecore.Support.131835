@@ -157,14 +157,7 @@
                 (parseInt(featuresObject['dialogHeight'].replace('px', '')) + modalDialogHeaderAndBorderHeight) :
                 size.height;
 
-            //bug #131835
-            var viewPortSize = getViewPortSize(top);
-
-            if ((viewPortSize.width < 1600) || isMobileBrowser()) {
-                dialogWidth = viewPortSize.width * 0.8;
-                dialogHeight = viewPortSize.height * 0.8;
-            }
-            // end of the custom code
+            
             var isResizable = !(featuresObject['resizable'] == 'no' || featuresObject['resizable'] == 'false');
             var isMaximizable = featuresObject['maximizable'] != 'no';
             var isClosable = featuresObject['closable'] != 'no';
