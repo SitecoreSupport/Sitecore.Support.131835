@@ -162,17 +162,12 @@
 
             if ((viewPortSize.width < 1600) || isMobileBrowser()) 
             {
-                var resizedWidth = viewPortSize.width * 0.8;
-                var resizedHeight = viewPortSize.height * 0.8;
-                if(resizedWidth <= dialogWidth)
-                {
-                    dialogWidth = resizedWidth;
-                }
-                if (resizedHeight <= dialogHeight)
-                {
-                    dialogHeight = resizedHeight;
-                    
-                }
+                // further fix for #131835, now 8.2.5.1
+                var resizedWidth = getBestDialogSize().width;
+                var resizedHeight = getBestDialogSize().height;
+                dialogWidth = Math.min(dialogWidth, resizedWidth)
+                dialogHeight = Math.min(dialogHeight, resizedHeight)
+                // end further fix
             } 
             // end of the custom code
             var isResizable = !(featuresObject['resizable'] == 'no' || featuresObject['resizable'] == 'false');
